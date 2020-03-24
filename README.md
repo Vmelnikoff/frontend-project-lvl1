@@ -1,2 +1,2 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
-![](https://github.com/Vmelnikoff/frontend-project-lvl1/workflows/Run%20linter/badge.svg)
+![Node.js CI](https://github.com/Vmelnikoff/frontend-project-lvl1/workflows/Node.js%20CI/badge.svg)
