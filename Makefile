@@ -8,5 +8,9 @@ start:
 publish:
 	npm publish --dry-run
 
+link:
+	npm unlink
+	npm link
+
 lint:
 	npx eslint .

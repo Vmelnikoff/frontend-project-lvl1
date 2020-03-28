@@ -10,6 +10,9 @@ const startGame = (gameName) => {
     calc: {
       rules: 'What is the result of the expression?',
     },
+    gcd: {
+      rules: 'Find the greatest common divisor of given numbers.',
+    },
   };
 
   // Display greeting
