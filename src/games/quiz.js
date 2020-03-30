@@ -120,6 +120,44 @@ const startQuiz = (gameName) => {
     return true;
   }
 
+  // ========== Brain Progression ==========
+  if (gameName === 'progression') {
+    console.log('Success');
+
+    for (let index = 0; index < 3; index += 1) {
+      const a1 = getRandomInt();
+      // Exclude first or last num
+      const d = getRandomInt(8) + 1;
+      const secretIndex = getRandomInt(8) - 1;
+      let correctAnswer = 0;
+      let resultString = `${a1} `;
+
+      for (let i = 0; i < 9; i += 1) {
+        if (secretIndex === i) {
+          resultString += '.. ';
+          correctAnswer = String(a1 + d * (i + 1));
+        } else {
+          // an = a1 + d(n-1)
+          resultString += `${String(a1 + d * (i + 1))} `;
+        }
+      }
+
+      console.log(`Question: ${resultString}`);
+      const answer = readAnswer(question);
+
+      if (answer !== correctAnswer) {
+        console.log(
+          `\x1b[31m"${answer}"\x1b[0m is wrong answer ;(. Correct answer was \x1b[31m"${correctAnswer}"\x1b[0m.`,
+        );
+        return false;
+      }
+
+      console.log('Correct!');
+    }
+
+    return true;
+  }
+
   return null;
 };
 
