@@ -3,10 +3,15 @@
 
 # Brain games
 
-## Brain even game
+## Setup games
 
 ```sh
 make link
+```
+
+## Brain even game
+
+```sh
 brain-even
 ```
 
@@ -15,7 +20,6 @@ brain-even
 ## Brain calc game
 
 ```sh
-make link
 brain-calc
 ```
 
@@ -24,8 +28,16 @@ brain-calc
 ## Brain gcd game
 
 ```sh
-make link
 brain-gcd
 ```
 
 [Instruction - acciinema](https://asciinema.org/a/jpF53PoF2EfdPIOUt3RtvDVNt)
+
+
+## Brain progression game
+
+```sh
+brain-progression
+```
+
+[Instruction - acciinema](https://asciinema.org/a/JNTufLTgnEj82xLLOePVqPmGd)
