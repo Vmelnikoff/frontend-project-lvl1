@@ -122,8 +122,6 @@ const startQuiz = (gameName) => {
 
   // ========== Brain Progression ==========
   if (gameName === 'progression') {
-    console.log('Success');
-
     for (let index = 0; index < 3; index += 1) {
       const a1 = getRandomInt();
       // Exclude first or last num
