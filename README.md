@@ -41,3 +41,11 @@ brain-progression
 ```
 
 [Instruction - acciinema](https://asciinema.org/a/JNTufLTgnEj82xLLOePVqPmGd)
+
+## Brain prime game
+
+```sh
+brain-prime
+```
+
+[Instruction - acciinema](https://asciinema.org/a/FwtTIbOKFfEfX5P6Cg6iZhUYe)
