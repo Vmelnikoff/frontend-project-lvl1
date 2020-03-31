@@ -46,6 +46,19 @@ const getGCD = (data) => {
   return calculateGCD(maxNum, minNum);
 };
 
+// ========== Function for Prime ==========
+const isPrime = (num) => {
+  if (num <= 1) {
+    return 'no';
+  }
+  for (let i = 2; i < num; i += 1) {
+    if (num % i === 0) {
+      return 'no';
+    }
+  }
+  return 'yes';
+};
+
 // ========== Main Function ==========
 const startQuiz = (gameName) => {
   const question = 'Your answer: ';
@@ -141,6 +154,28 @@ const startQuiz = (gameName) => {
       }
 
       console.log(`Question: ${resultString}`);
+      const answer = readAnswer(question);
+
+      if (answer !== correctAnswer) {
+        console.log(
+          `\x1b[31m"${answer}"\x1b[0m is wrong answer ;(. Correct answer was \x1b[31m"${correctAnswer}"\x1b[0m.`,
+        );
+        return false;
+      }
+
+      console.log('Correct!');
+    }
+
+    return true;
+  }
+
+  // ========== Brain Prime ==========
+  if (gameName === 'prime') {
+    for (let index = 0; index < 3; index += 1) {
+      const randomNum = getRandomInt();
+      const correctAnswer = isPrime(randomNum);
+
+      console.log(`Question: ${randomNum}`);
       const answer = readAnswer(question);
 
       if (answer !== correctAnswer) {
