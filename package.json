@@ -1,7 +1,7 @@
 {
   "name": "frontend-project-lvl1",
   "version": "1.0.5",
-  "description": "",
+  "description": "Hexlet JS Project #1",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
