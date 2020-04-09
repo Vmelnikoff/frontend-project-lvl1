@@ -1,26 +1,12 @@
-import startQuiz, { readAnswer } from './games/quiz.js';
+import readlineSync from 'readline-sync';
 
-// ========== Main Function ==========
-const startGame = (gameName) => {
-  // ========== Constants for games ==========
-  const gameConst = {
-    even: {
-      rules: 'Answer "yes" if the number is even, otherwise answer "no".',
-    },
-    calc: {
-      rules: 'What is the result of the expression?',
-    },
-    gcd: {
-      rules: 'Find the greatest common divisor of given numbers.',
-    },
-    progression: {
-      rules: 'What number is missing in the progression?',
-    },
-    prime: {
-      rules: 'Answer "yes" if given number is prime. Otherwise answer "no".',
-    },
-  };
+// ==================== Common Functions ====================
+// Default random integer from 1 to 100
+const getRandomInt = (max = 100) => Math.floor(Math.random() * Math.floor(max)) + 1;
+const readAnswer = (question) => readlineSync.question(question);
 
+
+const startGame = (rules, gameData) => {
   // Display greeting
   console.log('Welcome to the Brain Games!');
 
@@ -30,15 +16,28 @@ const startGame = (gameName) => {
   // Display name
   console.log(`Hello, ${name}!`);
 
-  if (gameName === undefined) {
-    return;
-  }
-
   // Display rules
-  console.log(gameConst[gameName].rules);
+  console.log(rules);
 
   // Start quiz
-  const successResult = startQuiz(gameName);
+  let successResult = true;
+
+  for (let i = 0; i < 3; i += 1) {
+    const [question, correctAnswer] = gameData[i];
+
+    console.log(`Question: ${question}`);
+    const answer = readAnswer('Your answer: ');
+
+    if (answer !== correctAnswer) {
+      console.log(
+        `\x1b[31m"${answer}"\x1b[0m is wrong answer ;(. Correct answer was \x1b[31m"${correctAnswer}"\x1b[0m.`,
+      );
+      successResult = false;
+      break;
+    }
+
+    console.log('Correct!');
+  }
 
   // Display report
   if (successResult) {
@@ -49,3 +48,4 @@ const startGame = (gameName) => {
 };
 
 export default startGame;
+export { getRandomInt };
