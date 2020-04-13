@@ -1,7 +1,8 @@
 import startGame, { getRandomInt } from '../index.js';
 
+const description = 'What is the result of the expression?';
 
-const startCalcGame = () => {
+const generateGameData = () => {
   // ========== Functions for Calc ==========
   const getRandomSign = () => ['+', '-', '*'][getRandomInt(2)];
   const getCalcResult = (data) => {
@@ -24,22 +25,22 @@ const startCalcGame = () => {
     return String(correctAnswer);
   };
 
-  const rules = 'What is the result of the expression?';
   const gameData = [];
 
-  for (let index = 0; index < 3; index += 1) {
-    const randomNum1 = getRandomInt();
-    const randomNum2 = getRandomInt();
-    const randomSign = getRandomSign();
+  const randomNum1 = getRandomInt();
+  const randomNum2 = getRandomInt();
+  const randomSign = getRandomSign();
 
-    const question = `${randomNum1} ${randomSign} ${randomNum2}`;
-    const correctAnswer = getCalcResult([randomNum1, randomNum2, randomSign]);
+  const question = `${randomNum1} ${randomSign} ${randomNum2}`;
+  const correctAnswer = getCalcResult([randomNum1, randomNum2, randomSign]);
 
-    gameData.push([question, correctAnswer]);
-  }
+  gameData.push(question, correctAnswer);
 
-  startGame(rules, gameData);
+  return gameData;
 };
 
+const startCalcGame = () => {
+  startGame(description, generateGameData);
+};
 
 export default startCalcGame;
