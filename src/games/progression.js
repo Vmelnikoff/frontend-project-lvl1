@@ -1,14 +1,14 @@
-import startGame, { getRandomInt } from '../index.js';
+import startGame from '../index.js';
+import getRandomInt from '../utils.js';
 
 const description = 'What number is missing \x1b[1min\x1b[0m the progression?';
 
 const generateGameData = () => {
-  const gameData = [];
-
-  const a1 = getRandomInt();
+  const a1 = getRandomInt(0, 100);
+  const d = getRandomInt(1, 8);
   // Exclude first or last num
-  const d = getRandomInt(8) + 1;
-  const secretIndex = getRandomInt(8) - 1;
+  const secretIndex = getRandomInt(1, 8);
+
   let correctAnswer = 0;
   let resultString = `${a1} `;
 
@@ -24,9 +24,7 @@ const generateGameData = () => {
 
   const question = `${resultString}`;
 
-  gameData.push(question, correctAnswer);
-
-  return gameData;
+  return [question, correctAnswer];
 };
 
 const startProgressionGame = () => {

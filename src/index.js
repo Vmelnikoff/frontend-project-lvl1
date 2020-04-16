@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-import getRandomInt from './games/utils.js';
 
 const startGame = (description, generateGameData) => {
   // Display greeting
@@ -23,17 +22,16 @@ const startGame = (description, generateGameData) => {
 
     if (answer !== correctAnswer) {
       console.log(
-        `\x1b[31m"${answer}"\x1b[0m is wrong answer ;(. Correct answer was \x1b[31m"${correctAnswer}"\x1b[0m.`,
+        `"${answer}"is wrong answer ;(. Correct answer was "${correctAnswer}"`,
       );
+      console.log(`Let's try again, ${name}!`);
 
-      return console.log(`Let\x1b[31m's try again, ${name}!\x1b[0m`);
+      return;
     }
 
     console.log('Correct!');
   }
-
-  return console.log(`Congratulations, ${name}!`);
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default startGame;
-export { getRandomInt };

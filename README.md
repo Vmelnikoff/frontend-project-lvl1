@@ -15,7 +15,7 @@ make link
 brain-even
 ```
 
-[Instruction - acciinema](https://asciinema.org/a/0Fp9ffNSQKJO4Clf5mn9mZQTk)
+[![asciicast](https://asciinema.org/a/0Fp9ffNSQKJO4Clf5mn9mZQTk.svg)](https://asciinema.org/a/0Fp9ffNSQKJO4Clf5mn9mZQTk)
 
 ## Brain calc game
 
@@ -23,15 +23,14 @@ brain-even
 brain-calc
 ```
 
-[Instruction - acciinema](https://asciinema.org/a/y6JgSxPwBdAjCaWEJdYUDK8Nk)
+[![asciicast](https://asciinema.org/a/y6JgSxPwBdAjCaWEJdYUDK8Nk.svg)](https://asciinema.org/a/y6JgSxPwBdAjCaWEJdYUDK8Nk)
 
 ## Brain gcd game
 
 ```sh
 brain-gcd
 ```
-
-[Instruction - acciinema](https://asciinema.org/a/jpF53PoF2EfdPIOUt3RtvDVNt)
+[![asciicast](https://asciinema.org/a/jpF53PoF2EfdPIOUt3RtvDVNt.svg)](https://asciinema.org/a/jpF53PoF2EfdPIOUt3RtvDVNt)
 
 
 ## Brain progression game
@@ -40,7 +39,7 @@ brain-gcd
 brain-progression
 ```
 
-[Instruction - acciinema](https://asciinema.org/a/JNTufLTgnEj82xLLOePVqPmGd)
+[![asciicast](https://asciinema.org/a/JNTufLTgnEj82xLLOePVqPmGd.svg)](https://asciinema.org/a/JNTufLTgnEj82xLLOePVqPmGd)
 
 ## Brain prime game
 
@@ -48,4 +47,4 @@ brain-progression
 brain-prime
 ```
 
-[Instruction - acciinema](https://asciinema.org/a/FwtTIbOKFfEfX5P6Cg6iZhUYe)
+[![asciicast](https://asciinema.org/a/FwtTIbOKFfEfX5P6Cg6iZhUYe.svg)](https://asciinema.org/a/FwtTIbOKFfEfX5P6Cg6iZhUYe)

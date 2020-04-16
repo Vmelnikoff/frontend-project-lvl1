@@ -1,4 +1,5 @@
-import startGame, { getRandomInt } from '../index.js';
+import startGame from '../index.js';
+import getRandomInt from '../utils.js';
 
 const description = 'Answer \x1b[31m"yes"\x1b[0m \x1b[1mif\x1b[0m given number is prime. Otherwise answer \x1b[31m"no"\x1b[0m.';
 
@@ -16,16 +17,12 @@ const generateGameData = () => {
     return 'yes';
   };
 
-  const gameData = [];
-
-  const randomNum = getRandomInt();
+  const randomNum = getRandomInt(0, 100);
 
   const question = `${randomNum}`;
   const correctAnswer = isPrime(randomNum);
 
-  gameData.push(question, correctAnswer);
-
-  return gameData;
+  return [question, correctAnswer];
 };
 
 const startPrimeGame = () => {
