@@ -1,32 +1,35 @@
-import startGame from '../index.js';
+import playGame, { decorate } from '../index.js';
 import getRandomInt from '../utils.js';
 
-const description = 'Answer \x1b[31m"yes"\x1b[0m \x1b[1mif\x1b[0m given number is prime. Otherwise answer \x1b[31m"no"\x1b[0m.';
+const description = `Answer ${decorate('"yes"', 'red')} ${decorate('if', 'bold')} given number is prime. Otherwise answer ${decorate('"no"', 'red')}.`;
+
+// ========== Function for Prime ==========
+const isPrime = (num) => {
+  if (num <= 1) {
+    return false;
+  }
+  for (let i = 2; i < num; i += 1) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
 
 const generateGameData = () => {
-  // ========== Function for Prime ==========
-  const isPrime = (num) => {
-    if (num <= 1) {
-      return 'no';
-    }
-    for (let i = 2; i < num; i += 1) {
-      if (num % i === 0) {
-        return 'no';
-      }
-    }
-    return 'yes';
-  };
+  const minRandomNum = 0;
+  const maxRandomNum = 100;
 
-  const randomNum = getRandomInt(0, 100);
+  const randomNum = getRandomInt(minRandomNum, maxRandomNum);
 
   const question = `${randomNum}`;
-  const correctAnswer = isPrime(randomNum);
+  const correctAnswer = isPrime(randomNum) ? 'yes' : 'no';
 
   return [question, correctAnswer];
 };
 
 const startPrimeGame = () => {
-  startGame(description, generateGameData);
+  playGame(description, generateGameData);
 };
 
 export default startPrimeGame;

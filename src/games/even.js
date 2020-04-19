@@ -1,19 +1,22 @@
-import startGame from '../index.js';
+import playGame, { decorate } from '../index.js';
 import getRandomInt from '../utils.js';
 
-const description = 'Answer \x1b[31m"yes"\x1b[0m \x1b[1mif\x1b[0m the number is even, otherwise answer \x1b[31m"no"\x1b[0m.';
+const description = `Answer ${decorate('"yes"', 'red')} ${decorate('if', 'bold')} the number is even, otherwise answer ${decorate('"no"', 'red')}.`;
+
+const isEven = (randomNum) => (randomNum % 2 === 0);
 
 const generateGameData = () => {
-  const isEven = (randomNum) => (randomNum % 2 === 0);
+  const minRandomNum = 0;
+  const maxRandomNum = 100;
 
-  const question = getRandomInt(0, 100);
+  const question = getRandomInt(minRandomNum, maxRandomNum);
   const correctAnswer = isEven(question) ? 'yes' : 'no';
 
   return [question, correctAnswer];
 };
 
 const startEvenGame = () => {
-  startGame(description, generateGameData);
+  playGame(description, generateGameData);
 };
 
 export default startEvenGame;

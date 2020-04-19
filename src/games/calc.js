@@ -1,10 +1,13 @@
-import startGame from '../index.js';
+import playGame from '../index.js';
 import getRandomInt from '../utils.js';
 
 const description = 'What is the result of the expression?';
+// ========== Functions for Calc ==========
+const operations = ['+', '-', '*'];
+const getRandomOperation = () => operations[getRandomInt(0, operations.length - 1)];
 
 const getCalcResult = (randomNum1, randomNum2, operation) => {
-  let correctAnswer = 0;
+  let correctAnswer = null;
   switch (operation) {
     case '+':
       correctAnswer = randomNum1 + randomNum2;
@@ -16,19 +19,18 @@ const getCalcResult = (randomNum1, randomNum2, operation) => {
       correctAnswer = randomNum1 * randomNum2;
       break;
     default:
-      correctAnswer = null;
+      return null;
   }
 
   return String(correctAnswer);
 };
 
 const generateGameData = () => {
-  // ========== Functions for Calc ==========
-  const operations = ['+', '-', '*'];
-  const getRandomOperation = () => operations[getRandomInt(0, 2)];
+  const minRandomNum = 0;
+  const maxRandomNum = 100;
 
-  const randomNum1 = getRandomInt(0, 100);
-  const randomNum2 = getRandomInt(0, 100);
+  const randomNum1 = getRandomInt(minRandomNum, maxRandomNum);
+  const randomNum2 = getRandomInt(minRandomNum, maxRandomNum);
   const randomSign = getRandomOperation();
 
   const question = `${randomNum1} ${randomSign} ${randomNum2}`;
@@ -38,7 +40,7 @@ const generateGameData = () => {
 };
 
 const startCalcGame = () => {
-  startGame(description, generateGameData);
+  playGame(description, generateGameData);
 };
 
 export default startCalcGame;

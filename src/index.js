@@ -1,6 +1,26 @@
 import readlineSync from 'readline-sync';
 
-const startGame = (description, generateGameData) => {
+const decorate = (string, style) => {
+  const output = 'console';
+  const styles = {
+    red: '31',
+    green: '32',
+    yellow: '33',
+    blue: '34',
+    bold: '1',
+  };
+
+  if (style in styles && output === 'console') {
+    const reset = '\x1b[0m';
+    const decor = `\x1b[${styles[style]}m`;
+
+    return `${decor}${string}${reset}`;
+  }
+
+  return string;
+};
+
+const playGame = (description, generateGameData) => {
   // Display greeting
   console.log('Welcome to the Brain Games!');
 
@@ -22,9 +42,9 @@ const startGame = (description, generateGameData) => {
 
     if (answer !== correctAnswer) {
       console.log(
-        `"${answer}"is wrong answer ;(. Correct answer was "${correctAnswer}"`,
+        `${decorate(`"${answer}"`, 'red')} is wrong answer ;(. Correct answer was ${decorate(`"${correctAnswer}"`, 'red')}`,
       );
-      console.log(`Let's try again, ${name}!`);
+      console.log(`Let${decorate(`'s try again, ${name}!`, 'red')}`);
 
       return;
     }
@@ -34,4 +54,5 @@ const startGame = (description, generateGameData) => {
   console.log(`Congratulations, ${name}!`);
 };
 
-export default startGame;
+export default playGame;
+export { decorate };
