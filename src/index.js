@@ -1,24 +1,5 @@
 import readlineSync from 'readline-sync';
-
-const decorate = (string, style) => {
-  const output = 'console';
-  const styles = {
-    red: '31',
-    green: '32',
-    yellow: '33',
-    blue: '34',
-    bold: '1',
-  };
-
-  if (style in styles && output === 'console') {
-    const reset = '\x1b[0m';
-    const decor = `\x1b[${styles[style]}m`;
-
-    return `${decor}${string}${reset}`;
-  }
-
-  return string;
-};
+import { decorate } from './utils.js';
 
 const playGame = (description, generateGameData) => {
   // Display greeting
@@ -34,7 +15,9 @@ const playGame = (description, generateGameData) => {
   console.log(description);
 
   // Start quiz
-  for (let i = 0; i < 3; i += 1) {
+  const numOfRounds = 3;
+
+  for (let i = 0; i < numOfRounds; i += 1) {
     const [question, correctAnswer] = generateGameData();
 
     console.log(`Question: ${question}`);
@@ -55,4 +38,3 @@ const playGame = (description, generateGameData) => {
 };
 
 export default playGame;
-export { decorate };

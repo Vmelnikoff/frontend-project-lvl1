@@ -1,5 +1,5 @@
-import playGame, { decorate } from '../index.js';
-import getRandomInt from '../utils.js';
+import playGame from '../index.js';
+import { getRandomInt, decorate } from '../utils.js';
 
 const description = `What number is missing ${decorate('in', 'bold')} the progression?`;
 
@@ -15,18 +15,19 @@ const generateGameData = () => {
   // Exclude first or last num
   const secretIndex = getRandomInt(1, progressionLength - 2);
 
-  let correctAnswer = 0;
+  const correctAnswer = String(firstMemberOfProgression + progressionStep * (secretIndex));
   let question = '';
 
   for (let i = 0; i < progressionLength; i += 1) {
     if (secretIndex === i) {
       question = `${question}.. `;
-      correctAnswer = String(firstMemberOfProgression + progressionStep * (i - 1));
     } else {
       // a(n) = firstMemberOfProgression + progressionStep * (n-1)
-      question = `${question}${String(firstMemberOfProgression + progressionStep * (i - 1))} `;
+      question = `${question}${firstMemberOfProgression + progressionStep * (i)} `;
     }
   }
+
+  question = question.trimEnd();
 
   return [question, correctAnswer];
 };

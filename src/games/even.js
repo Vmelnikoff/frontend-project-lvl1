@@ -1,5 +1,5 @@
-import playGame, { decorate } from '../index.js';
-import getRandomInt from '../utils.js';
+import playGame from '../index.js';
+import { getRandomInt, decorate } from '../utils.js';
 
 const description = `Answer ${decorate('"yes"', 'red')} ${decorate('if', 'bold')} the number is even, otherwise answer ${decorate('"no"', 'red')}.`;
 

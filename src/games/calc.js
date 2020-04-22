@@ -1,5 +1,5 @@
 import playGame from '../index.js';
-import getRandomInt from '../utils.js';
+import { getRandomInt } from '../utils.js';
 
 const description = 'What is the result of the expression?';
 // ========== Functions for Calc ==========
@@ -7,7 +7,7 @@ const operations = ['+', '-', '*'];
 const getRandomOperation = () => operations[getRandomInt(0, operations.length - 1)];
 
 const getCalcResult = (randomNum1, randomNum2, operation) => {
-  let correctAnswer = null;
+  let correctAnswer;
   switch (operation) {
     case '+':
       correctAnswer = randomNum1 + randomNum2;
@@ -22,7 +22,7 @@ const getCalcResult = (randomNum1, randomNum2, operation) => {
       return null;
   }
 
-  return String(correctAnswer);
+  return correctAnswer;
 };
 
 const generateGameData = () => {
@@ -34,7 +34,7 @@ const generateGameData = () => {
   const randomSign = getRandomOperation();
 
   const question = `${randomNum1} ${randomSign} ${randomNum2}`;
-  const correctAnswer = getCalcResult(randomNum1, randomNum2, randomSign);
+  const correctAnswer = String(getCalcResult(randomNum1, randomNum2, randomSign));
 
   return [question, correctAnswer];
 };
